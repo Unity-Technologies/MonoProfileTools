@@ -40,8 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MonoCheckout.cs" />
     <Compile Include="SourcesUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\external\NiceIO\NiceIO.csproj">
+      <Project>{c2aa4cb4-ed9b-46d3-957e-aa2f242fb5c3}</Project>
+      <Name>NiceIO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NiceIO;
 
 namespace SourcesCloner
 {
@@ -13,7 +10,7 @@ namespace SourcesCloner
             if (!Options.InitAndSetup(args))
                 return;
 
-            throw new NotImplementedException();
+            new Cloner(Options.MonoCheckout.ToNPath()).Run(Options.ReferenceProfile, Options.OutputProfile, Options.CloneInsteadOfInclude, Options.ForceAll);
         }
     }
 }

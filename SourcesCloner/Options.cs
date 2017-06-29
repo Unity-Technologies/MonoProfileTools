@@ -22,12 +22,16 @@ namespace SourcesCloner
         [HelpDetails("Optional.  Copy the contents of the reference profile instead of generating sources files that #include the reference profile")]
         public static bool CloneInsteadOfInclude;
 
+        [HelpDetails("Optional.  Output a sources file for every assembly even if the reference profiles will automatically be used")]
+        public static bool ForceAll;
+
         public static void SetToDefaults()
         {
             MonoCheckout = null;
             ReferenceProfile = "net_4_x";
             OutputProfile = null;
             CloneInsteadOfInclude = false;
+            ForceAll = false;
         }
 
         public static string NameFor(string fieldName)
