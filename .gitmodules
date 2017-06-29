@@ -1,3 +1,6 @@
 [submodule "external/UnityOptions"]
 	path = external/UnityOptions
 	url = https://github.com/Unity-Technologies/UnityOptions.git
+[submodule "external/NiceIO"]
+	path = external/NiceIO
+	url = https://github.com/lucasmeijer/NiceIO.git
