@@ -14,10 +14,10 @@ namespace SourcesCloner
         public static string MonoCheckout;
 
         [HelpDetails("The name of the mono implementation profile to base the new profile off of.  Defaults to 'net_4_x'")]
-        public static string ReferenceProfile;
+        public static string RefProfile;
 
         [HelpDetails("The name of the output profile that the sources files are generated for.  Defaults to 'unitystandard'")]
-        public static string OutputProfile;
+        public static string OutProfile;
 
         [HelpDetails("Optional.  Copy the contents of the reference profile instead of generating sources files that #include the reference profile")]
         public static bool CloneInsteadOfInclude;
@@ -28,8 +28,8 @@ namespace SourcesCloner
         public static void SetToDefaults()
         {
             MonoCheckout = null;
-            ReferenceProfile = "net_4_x";
-            OutputProfile = null;
+            RefProfile = "net_4_x";
+            OutProfile = null;
             CloneInsteadOfInclude = false;
             ForceAll = false;
         }
@@ -70,9 +70,9 @@ namespace SourcesCloner
 
         private static bool ValidateArguments()
         {
-            if (string.IsNullOrEmpty(OutputProfile))
+            if (string.IsNullOrEmpty(OutProfile))
             {
-                Console.WriteLine($"Missing required argument {NameFor(nameof(OutputProfile))}");
+                Console.WriteLine($"Missing required argument {NameFor(nameof(OutProfile))}");
                 return false;
             }
 

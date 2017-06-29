@@ -10,7 +10,7 @@ namespace SourcesCloner
             if (!Options.InitAndSetup(args))
                 return;
 
-            new Cloner(Options.MonoCheckout.ToNPath()).Run(Options.ReferenceProfile, Options.OutputProfile, Options.CloneInsteadOfInclude, Options.ForceAll);
+            new Cloner(Options.MonoCheckout.ToNPath()).Run(Options.RefProfile, Options.OutProfile, Options.CloneInsteadOfInclude, Options.ForceAll);
         }
     }
 }
