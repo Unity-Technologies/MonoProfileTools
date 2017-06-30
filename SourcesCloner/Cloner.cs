@@ -15,7 +15,7 @@ namespace SourcesCloner
             _monoCheckout = new MonoCheckout(monoCheckoutRoot);
         }
 
-        public void Run(string referenceProfile, string outputProfile, bool cloneInsteadOfInclude, bool forceAll)
+        public void Run(string referenceProfile, string outputProfile, string altIncludeProfile, bool cloneInsteadOfInclude, bool forceAll)
         {
             foreach (var assemblyDirectory in _monoCheckout.Root.Combine("mcs", "class").Directories())
             {
@@ -46,9 +46,18 @@ namespace SourcesCloner
                         continue;
                     }
 
+                    var includeFileName = referenceProfileSourcesFile.FileName;
+
+                    if (!string.IsNullOrEmpty(altIncludeProfile))
+                    {
+                        var altPath = _monoCheckout.OutputProfileSourcesFilePathFor(assemblyDirectory, altIncludeProfile);
+                        if (altPath.FileExists())
+                            includeFileName = altPath.FileName;
+                    }
+
                     using (var writer = new StreamWriter(outputProfileSourcesFile.ToString()))
                     {
-                        writer.Write($"#include {referenceProfileSourcesFile.FileName}\n");
+                        writer.Write($"#include {includeFileName}\n");
                     }
                     Console.WriteLine($"Created sources file : {outputProfileSourcesFile}");
                 }
