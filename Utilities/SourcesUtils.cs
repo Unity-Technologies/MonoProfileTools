@@ -14,6 +14,9 @@ namespace Utilities
             if (directory.FileName == "System.ComponentModel.Composition.4.5")
                 return "System.ComponentModel.Composition";
 
+            if (directory.FileName == "System.XML")
+                return "System.Xml";
+
             return directory.FileName;
         }
     }
